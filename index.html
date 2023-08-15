@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLASTIC</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+    <script
+        src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <!--ASSETS-->
+        <a-assets>
+            <img id="hill" src="images/hill.jpg">
+            <img id="ground" src="images/floor.jpg">
+            <img id="road" src="images/road.jpg">
+            <img id="polluted" src="images/polluted.jpg">
+            <img id="img2" src="images/img2.jpg">
+            <img id="ocean" src="images/ocean.jpg">
+            <img id="wall" src="images/wall.jpg">
+            <img id="p2" src="images/plastics/2.png">
+            <img id="p3" src="images/plastics/3.png">
+            <img id="p4" src="images/plastics/4.png">
+            <img id="p5" src="images/plastics/5.png">
+            <img id="p6" src="images/plastics/6.png">
+            <img id="p7" src="images/plastics/7.png">
+            <img id="p8" src="images/plastics/8.png">
+            <img id="p9" src="images/plastics/9.png">
+            <img id="p1" src="images/plastics/1.png">
+            <audio id="audio" src="images/audio.mp3"></audio>
+            <video id="vid1" autoplay loop="true" src="images/vid1.mp4"></video>
+            <video id="vid2" autoplay loop="true" src="images/vid2.mp4"></video>
+            <video id="GLO" autoplay loop="true" src="images/GLO.mp4"></video>
+            <a-asset-item id="leftHand" src="3d/leftHandLow.gltf"></a-asset-item>
+            <a-asset-item id="rightHand" src="3d/rightHandLow.gltf"></a-asset-item>
+            <a-asset-item id="bottle" src="3d/bottle.gltf"></a-asset-item>
+            <a-asset-item id="cup" src="3d/cup.gltf"></a-asset-item>
+            <a-asset-item id="bot2-obj" src="3d/bot2/bot2.obj"></a-asset-item>
+            <a-asset-item id="bot2-mtl" src="3d/bot2/bot2.mtl"></a-asset-item>
+            <a-asset-item id="toy-obj" src="3d/toy/toy.obj"></a-asset-item>
+            <a-asset-item id="toy-mtl" src="3d/toy/toy.mtl"></a-asset-item>
+            <a-asset-item id="chips-obj" src="3d/chips/chips.obj"></a-asset-item>
+            <a-asset-item id="chips-mtl" src="3d/chips/chip.mtl"></a-asset-item>
+            <a-asset-item id="carate-obj" src="3d/carate/carate.obj"></a-asset-item>
+            <a-asset-item id="carate-mtl" src="3d/carate/carate.mtl"></a-asset-item>
+            <a-asset-item id="hdpe-obj" src="3d/shampoo/Moisturizer Bottle.obj"></a-asset-item>
+            <a-asset-item id="hdpe-mtl" src="3d/shampoo/Moisturizer Bottle.mtl"></a-asset-item>
+        </a-assets>
+
+        <!--Hand Controls-->
+        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+            teleport-controls></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" paint-controls
+            ui></a-entity>
+
+
+        <a-sky src="#hill"></a-sky>
+        <a-plane src="#ground" position="0 0 0" rotation="-90 0 0" width="30" height="30"></a-plane>
+
+        <!--Room Setup-->
+        <a-box position="0 2 -13" src="#wall" depth="0.1" height="5" width="27" color="#DDD"></a-box>
+        <a-box position="-13 2 0" src="#wall" depth="0.1" height="5" width="26" rotation="0 90 0" color="#DDD"></a-box>
+        <a-box position="13 2 0" src="#wall" depth="0.1" height="5" width="26" rotation="0 -90 0" color="#DDD"></a-box>
+
+        <!--front walls-->
+        <a-box position="8.5 2 13" src="#wall" depth="0.1" height="5" width="9" color="#DDD"></a-box>
+        <a-box position="-8.5 2 13" src="#wall" depth="0.1" height="5" width="9" color="#DDD"></a-box>
+
+        <!--rooms partition-->
+        <a-box position="-9 2 4" src="#wall" depth="1" height="5" width="8" color="#DDD"></a-box>
+        <a-box position="-9 2 -4" src="#wall" depth="1" height="5" width="8" color="#DDD"></a-box>
+        <a-box position="9 2 4" src="#wall" depth="1" height="5" width="8" color="#DDD"></a-box>
+        <a-box position="9 2 -4" src="#wall" depth="1" height="5" width="8" color="#DDD"></a-box>
+
+        <!--rooms front walls-->
+        <a-box position="5 2 4" src="#wall" depth="1" height="5" width="6" rotation="0 -90 0" color="#DDD"></a-box>
+        <a-box position="-5 2 4" src="#wall" depth="1" height="5" width="6" rotation="0 90 0" color="#DDD"></a-box>
+        <a-box position="5 2 -4" src="#wall" depth="1" height="5" width="6" rotation="0 -90 0" color="#DDD"></a-box>
+        <a-box position="-5 2 -4" src="#wall" depth="1" height="5" width="6" rotation="0 90 0" color="#DDD"></a-box>
+
+        <a-box position="-5 2 11" src="#wall" depth="1" height="5" width="4" rotation="0 -90 0" color="#DDD"></a-box>
+        <a-box position="5 2 11" src="#wall" depth="1" height="5" width="4" rotation="0 -90 0" color="#DDD"></a-box>
+        <a-box position="-5 2 -11" src="#wall" depth="1" height="5" width="4" rotation="0 -90 0" color="#DDD"></a-box>
+        <a-box position="5 2 -11" src="#wall" depth="1" height="5" width="4" rotation="0 -90 0" color="#DDD"></a-box>
+
+        <!--gate-->
+        <a-cylinder position="-4 2 13" color="crimson" height="4" radius="0.4"></a-cylinder>
+        <a-cylinder position="4 2 13" color="crimson" height="4" radius="0.4"></a-cylinder>
+        <a-torus position="0 4 13" color="#43A367" arc="180" radius="4" radius-tubular="0.2"></a-torus>
+
+        <!--sound-->
+        <a-sound src="#audio" autoplay="true" loop="true" distanceModel="linear" position="0 2 5"></a-sound>
+
+
+        <!--Information panels-->
+        <a-image src="#polluted" position="-8.5 2.25 13.1" width="9" height="4.5"></a-image>
+        <a-image src="#img2" position="8.5 2.25 13.1" width="9" height="4.5"></a-image>
+        <a-image src="#ocean" position="0 2.25 -12.95" width="9" height="4"></a-image>
+
+        <a-image src="#p2" position="-12 2 6.75" rotation="0 90 0" width="3" height="4"></a-image>
+        <a-image src="#p4" position="-12 2 10.25" rotation="0 90 0" width="3" height="4"></a-image>
+        <a-image src="#p3" position="-12 2 2" rotation="0 90 0" width="3" height="4"></a-image>
+        <a-image src="#p5" position="-12 2 -2" rotation="0 90 0" width="3" height="4"></a-image>
+        <a-image src="#p6" position="12 2 -2" rotation="0 -90 0" width="3" height="4"></a-image>
+        <a-image src="#p7" position="12 2 2" rotation="0 -90 0" width="3" height="4"></a-image>
+        <a-image src="#p8" position="12 2 6.75" rotation="0 -90 0" width="3" height="4"></a-image>
+        <a-image src="#p9" position="12 2 10.25" rotation="0 -90 0" width="3" height="4"></a-image>
+        <a-image src="#p1" position="4.4 2 -4" rotation="0 -90 0" width="3" height="4"></a-image>
+
+
+        <a-obj-model src="#hdpe-obj" mtl="#hdpe-mtl" position="-9.5 0.5 -3.4" scale="0.93 0.93 0.93"></a-obj-model>
+        <a-obj-model src="#toy-obj" mtl="#toy-mtl" position="6.8 1 6.1" scale="0.422 0.422 0.422"></a-obj-model>
+        <a-obj-model src="#chips-obj" mtl="#chips-mtl" position="-9 2 4" rotation="-90 90 -90" width
+            scale="0.2 0.3 0.2"></a-obj-model>
+        <a-obj-model src="#carate-obj" mtl="#carate-mtl" position="7.2 1 8" rotation="0 90 0"
+            scale="0.017 0.02 0.05"></a-obj-model>
+
+        <a-obj-model src="#bot2-obj" mtl="#bot2-mtl" position="9.5 0.1 6.5" scale="7.5 7.5 7.5"></a-obj-model>
+        <a-gltf-model src="#bottle" position="-7 0.16 11.6" rotation="0 -90 0" scale="0.31 0.31 0.31"></a-gltf-model>
+        <a-gltf-model src="#cup" position="-8.5 0.5 6" scale="0.01 0.01 0.01"></a-gltf-model>
+
+        <a-video src="#GLO" position="-4.4 2 4" rotation="0 90 0" width="5.5" height="3.5"></a-video>
+
+        <a-video src="#vid1" position="-12.9 2 -8.5 " rotation="0 90 0" width="4" height="2" sound="on:click"></a-video>
+        <a-video src="#vid2" position="12.9 2 -8.5 " rotation="0 90 0" width="4" height="2"></a-video>
+
+
+
+        <!-- <a-text position="-5 2 -5" value="Plastic Pollution: An Environment Crisis" color="red" ></a-text>
+          <a-text position="0 1.6 -0 " value="Plastic Pollution: An Environment Crisis" color="red" ></a-text>
+          <a-text position="0 1.2 0" value="Every Year Millions of tons of plastic end up in landfills and oceans." color="red" ></a-text>
+          <a-text position="0 0.8 0" value="Explore this VR project to learn about plastic pollution." color="red"  ></a-text>
+          <a-text position="0 0.4 0" value="Let's take action to protect our planet!" color="red"  ></a-text>
+         -->
+    </a-scene>
+</body>
+
+</html> 
